@@ -1,0 +1,71 @@
+<svg [attr.width]="width" [attr.height]="height">
+
+    <image id="floor" href="assets\image\woodenfloor.png" [attr.x]="width/2 - 200" [attr.y]="height/2 - 200" height="400px"/>
+
+    <rect [attr.x]="width/2 - 200" [attr.y]="height/2 - 200" width="400" height="400" fill="none" stroke="#170E00" stroke-width="7"/>
+    
+    <rect [attr.x]="width/2 - 45" [attr.y]="height/2 + 200" width="90" height="40" fill="none" stroke="#170E00" stroke-width="7"/>
+
+    <rect [attr.x]="width/2 - 45" [attr.y]="height/2 - 240" width="90" height="40" fill="none" stroke="#170E00" stroke-width="7"/>
+
+    <image id="floor" href="assets\image\floor.png" [attr.x]="width/2 - 42" [attr.y]="height/2 - 237" width="84"/>
+
+    <image id="floor" href="assets\image\floor.png" [attr.x]="width/2 - 42" [attr.y]="height/2 + 196" width="84"/>
+
+    <!-- Carpet -->
+    <rect id="ghostcarpet" [attr.x]="width/2 - 243" [attr.y]="height/2 - 40" width="40" height="80" opacity="40%" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 - 197" [attr.y]="height/2 - 20" width="320" height="40" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 + 94" [attr.y]="height/2 - 120" width="40" height="140" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2" [attr.y]="height/2 - 135" width="134" height="40" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 - 100" [attr.y]="height/2 + 93" width="235" height="40" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 - 134" [attr.y]="height/2 + 40" width="40" height="93" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 + 95" [attr.y]="height/2 + 40" width="40" height="93" fill="green"/>
+    <rect class="carpet" [attr.x]="width/2 - 197" [attr.y]="height/2 - 15" width="332" height="4" fill="white"/>
+    <rect class="carpet" [attr.x]="width/2 - 197" [attr.y]="height/2 + 10" width="332" height="4" fill="white"/>
+    
+    <image id="floor" href="assets\image\redcarpet.png" [attr.x]="width/2 - 42" [attr.y]="height/2 - 200" width="84"/>
+    <!-- Carpet -->
+
+    <g *ngFor="let numberWidth of [1, 2, 3, 4, 5, 6]">
+      <g *ngFor="let numberHeight of [1, 2, 3, 4, 5, 6]">
+        <circle class="circle" [attr.cx]="width/2 - 200 + numberWidth*57" [attr.cy]="height/2 - 200 + numberHeight*57" r="3" fill="black"></circle>
+      </g>
+    </g>
+
+    <text id="Level" [attr.x]="width/2 - 200" [attr.y]="height/2 - 290" font-size="25" fill="Black">A Green Ghost</text>
+
+    <text id="deathCount" [attr.x]="width/2 + 200" [attr.y]="height/2 - 290" font-size="20" fill="darkred" text-anchor="end">Death count : 0</text>
+
+    <image id="chest" href="assets\image\chest.png" [attr.x]="width/2 - 20" [attr.y]="height/2 - 238" height="30px"/>
+
+    <image id="greykey" href="assets\image\greykey.png" [attr.x]="width/2 - 123" [attr.y]="height/2 + 29" height="30px">
+        <animate id="greykeyanimate" attributeName="height" from="30" to="30" dur="1s" min="1s" repeatCount="0" d="key-pop"/>
+    </image>/>
+    <image id="greykeypop" href="assets\image\key.png" [attr.x]="width/2 + 40" [attr.y]="height/2 + 90" height="0">
+      <animate id="greykeypopanimate" attributeName="height" from="0" dur="1s" min="1s" begin="key-pop.end"/>
+    </image>/>
+
+    <rect [attr.x]="width/2 - 200" [attr.y]="height/2 + 206" width="140" height="50px" fill="#7A2D07"/>
+    <rect [attr.x]="width/2 - 195" [attr.y]="height/2 + 211" width="40px" height="40px" fill="#white" opacity="30%"/>
+    <rect [attr.x]="width/2 - 150" [attr.y]="height/2 + 211" width="40px" height="40px" fill="#white" opacity="30%"/>
+    <rect [attr.x]="width/2 - 105" [attr.y]="height/2 + 211" width="40px" height="40px" fill="#white" opacity="30%"/>
+    <image id="key" visibility="hidden" href="assets\image\key.png" [attr.x]="width/2 - 185" [attr.y]="height/2 + 215" height="30px"/>
+    <!--<image href="assets\image\bag.png" [attr.x]="width/2 - 200" [attr.y]="height/2 + 206"/>-->
+    <text [attr.x]="width/2 - 296" [attr.y]="height/2 + 240" font-size="20" fill="#7A2D07">Inventory -</text>
+    <image id="greychestback" href="assets\image\greychest.png" [attr.x]="width/2 + 96" [attr.y]="height/2 + 35" height="30px"/>
+    <image id="ghost" [attr.href]="characterService.imageGhost" [attr.x]="characterService.xPosGhost" [attr.y]="characterService.yPosGhost" height="30px" opacity = 60%/>
+    <image id="character" [attr.href]="characterService.image" [attr.x]="characterService.xPos" [attr.y]="characterService.yPos" height="30px"/>
+    
+    <image id="greychestfront" href="assets\image\greychest.png" [attr.x]="width/2 + 96" [attr.y]="height/2 + 35" height="30px" visibility="visible"/>
+    <image id="exclamation" href="assets\image\exclamation.png" [attr.x]="characterService.xPos + 6" [attr.y]="characterService.yPos - 28" height="30px" opacity="0"/>
+
+    <rect id="checkpoint" [attr.x]="width/2 - 250" [attr.y]="height/2 - 250" width="0" height="0" fill="white" opacity="0">
+      <animate id="flashElem" repeatCount="0" attributeName="opacity" from="1" to="0" dur="1" min="1" fill="freeze" restart="never"/>
+    </rect>
+
+    <text id="hinttext" [attr.x]="width/2 " [attr.y]="height/2 + 300" font-size="20" fill="Black" text-anchor="middle">Request Small Hint</text>
+    <rect id="hintrect" [attr.x]="width/2 - 87" [attr.y]="height/2 + 280" width="175" height="25" opacity="10%" fill="grey" stroke="black"/>
+    <text id="hint" [attr.x]="width/2 - 135" [attr.y]="height/2 + 330" font-size="20" fill="Black" opacity="0%">The green ghost really likes green</text>
+    <text id="hint2" [attr.x]="width/2 - 205" [attr.y]="height/2 + 360" font-size="20" fill="Black" opacity="0%">Get the green ghost to the key, and then to the chest</text>
+
+</svg>

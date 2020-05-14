@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "botw-2025-closed-beta": {
+      "hosting": {
+        "puzzle-game": [
+          "botw-2025-closed-beta"
+        ]
+      }
+    }
+  }
+}
